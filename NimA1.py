@@ -18,6 +18,14 @@ def nim_best(left_sticks):
     if legal_move % 4 == 0:
         nim_best(left_sticks)
     return legal_move
-         
 
-print(nim_best(heap))
+def nim_human(left_sticks):
+    
+    while True:
+        move = int(input("Enter your move"))
+
+        if  move < len(left_sticks):
+            return move
+        
+
+print(nim_human(heap))
