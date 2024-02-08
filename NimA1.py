@@ -27,5 +27,7 @@ def nim_human(left_sticks):
         if  move < len(left_sticks):
             return move
         
+def get_player_name_human():
+  return [(input("Player 1 Name")), (input("Player 2 Name"))]
 
-print(nim_human(heap))
+print(get_player_name_human())
