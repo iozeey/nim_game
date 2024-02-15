@@ -1,5 +1,8 @@
 import random
 
+def nim_minimal():
+    return 1
+
 # valid random number
 def get_random_number():
     return random.randint(1,3)
