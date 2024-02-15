@@ -3,22 +3,19 @@
 import random
 import pdb;
 
-def recursive_sort(list):
+def show_Print(list):
+    print(list)
 
+def recursive_sort(list):
+    print(list)
     if int(len(list)) == 2:
-        print("base list", (list))
         if(list[0] > list[1]):
             return [list[1], list[0]]
         return list
     
-    temp = list
-    print(temp)
-    while (len(temp) > 2) and int(len(temp) / 2) >= 0:
-        shrink_list =  temp[0 : len(temp) - 2]
-        print("Shrinkend")
-        print(shrink_list)
-        return recursive_sort(shrink_list)
-    return temp
+    shrink_list =  list[0 : len(list) - 2]
+    sorted = recursive_sort(shrink_list)
+    print(sorted)
     
 
 def sort4(a1,a2,a3,a4):    
