@@ -1,41 +1,41 @@
 #! /usr/local/bin/python3
 
-def merge(left,right):    
-    result = []
-    left_index, right_index = 0, 0
-
-    while left_index < len(left) and right_index < len(right):
-        if left[left_index] < right[right_index]:
-            result.append(left[left_index])
-            left_index += 1
-        else:
-            result.append(right[right_index])
-            right_index += 1
-    
-    # copy the rest
-    result.extend(left[left_index: ])
-    result.extend(right[right_index: ])
-
-    return result
-def recursively_divide(list):
-    if(len(list)) <= 1:
-        return list
-    
-    mid =  int(len(list) / 2)
-    left =  list[0 : mid]
-    right =  list[mid : ]
-
-    left_list = recursively_divide(left)
-    right_list = recursively_divide(right)
-
-    return merge(left_list, right_list)
-
 def sort4(a1,a2,a3,a4):    
-    # list = [random.randint(1,20) for i in range(4)]
-    # [a1,a2,a3,a4]
-    list  = [12, 2, 1, 13, 5, 18, 13, 20]
-    temp_list = recursively_divide(list)
- 
-    return temp_list
+    # simple logic for sorting all four will go here
+
+    # find min of first two
+    # a2 is min
+    if a1 < a2:
+        a1,a2 = a2,a1
+
+    # find min of last two
+    # a4 is min
+    if a3 < a4:
+        a3,a4 = a4,a3
+
+    # now a2 and a4 are min now find min of these two
+    # a4 is min of all four
+    if a2 < a4:
+        a2,a4 = a4,a2
+
+    # now find out second last min in all four elements    
+
+    # compare any remaining two and find min
+    # a3 is min
+    if a2 < a3:
+        a2,a3 = a3,a2
+    
+    # now compare result(a3) with last(a1) elem
+    
+    # a3 is third last min out of four
+    if a1 < a3:
+        a1,a3 = a3,a1
+
+    # fourth last
+    if a1 < a2:
+        a1,a2 = a2,a1
+    
+    return a4,a3,a2,a1
 
 print(sort4(11,2,13,4));
+print(sort4(1,0,100,4));
