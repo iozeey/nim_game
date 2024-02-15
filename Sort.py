@@ -15,15 +15,13 @@ def recursive_sort(list):
     
     shrink_list =  list[0 : len(list) - 2]
     sorted = recursive_sort(shrink_list)
-    print(sorted)
+    print(list)
     
 
 def sort4(a1,a2,a3,a4):    
     list  = [12, 2, 1, 13, 5, 18, 13, 20, 18, 20, 6, 14, 17, 11, 16, 11, 5, 18, 2, 10]
     # list = [random.randint(1,20) for i in range(20)]
     # [a1,a2,a3,a4]
-    print(list)
-    # print( list[: len(list) - 2])
     temp_list = recursive_sort(list)
     # do using recursion
     # for p_index, parent_item in enumerate(list):
