@@ -21,27 +21,28 @@ def nim(n):
     return random.choice(range(1, min(n,3)+1))
 
 def nim_human(n):    
-    taken = int(input("There are sticks %s. How many do you take? Enter your move: " % n))
+    taken = int(input("There are sticks %s. How many do you take? Enter your move: " %(n)))
 
     if  taken in range(1, min(n,3)+1):
         return taken
     
     print("Illegal")
  
-# list of functions/players
-player_pool = [nim_minimal, nim, nim_best, nim_human]
+# list of functions(players)
+player_pool = [nim, nim_best, nim_human, nim_minimal]
 
+# update list with player name (function name) and its function body
 player_pool = { p.__name__:p for p in player_pool }
 
 # manager
 def select_players():
     players = []
-    
+
     while len(players) < 2:
-        print("These are the players: %s ".join(player_pool.keys()))
-        p = input("Name one: ")
+        print("Available players: %s " %(','.join(player_pool.keys())))
+        p = input("Type your player name: ")
         if p not in player_pool.keys():
-            print("not a valid player. select again")
+            print("Its not in the list. Please select again\n")
             continue
         players.append(p)
     
@@ -53,21 +54,21 @@ def select_players():
 def game():
     # Get input from user
     while True:
-        n = int(input("Heap size? \n"))
-        if n > 0 : break
+        sticks = int(input("Heap size? \n"))
+        if sticks > 0 : break
     
-    # get who is going to play
+    # Get who is going to play
     current, other = tuple(select_players())
 
-    # now run the game
-    while n > 0 :
+    # Now run the game
+    while sticks > 0 :
 
-        print("Heap has %d sicks." %n)
-        taken = player_pool[current](n)
+        print("Heap has %d sicks." %sticks)
+        taken = player_pool[current](sticks)
         
         print("%s takes %d sticks.\n" %(current, taken))
         
-        n -= taken
+        sticks -= taken
         
         current, other = other, current
 
