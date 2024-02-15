@@ -1,6 +1,6 @@
 #! /usr/local/bin/python3
 
-def show_Print(left,right):    
+def merge(left,right):    
     result = []
     left_index, right_index = 0, 0
 
@@ -28,7 +28,7 @@ def recursively_divide(list):
     left_list = recursively_divide(left)
     right_list = recursively_divide(right)
 
-    return show_Print(left_list, right_list)
+    return merge(left_list, right_list)
 
 def sort4(a1,a2,a3,a4):    
     # list = [random.randint(1,20) for i in range(4)]
